@@ -1,4 +1,4 @@
-package com.example.proyectoneoland.principal
+package com.example.proyectoneoland.fragment_principal
 
 import android.os.Bundle
 import android.view.LayoutInflater

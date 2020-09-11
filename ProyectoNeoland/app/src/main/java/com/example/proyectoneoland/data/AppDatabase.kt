@@ -1,4 +1,4 @@
-package com.example.proyectoneoland.Data
+package com.example.proyectoneoland.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

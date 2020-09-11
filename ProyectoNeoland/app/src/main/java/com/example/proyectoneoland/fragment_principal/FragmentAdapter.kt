@@ -1,4 +1,4 @@
-package com.example.proyectoneoland.principal
+package com.example.proyectoneoland.fragment_principal
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectoneoland.Data.Devices
+import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.R
 
 

@@ -1,11 +1,10 @@
-package com.example.proyectoneoland.principal
+package com.example.proyectoneoland.fragment_principal
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.example.proyectoneoland.Data.App
-import com.example.proyectoneoland.Data.AppDatabase
-import com.example.proyectoneoland.Data.Devices
+import com.example.proyectoneoland.data.App
+import com.example.proyectoneoland.data.Devices
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

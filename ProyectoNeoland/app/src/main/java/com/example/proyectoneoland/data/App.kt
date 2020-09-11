@@ -1,11 +1,9 @@
-package com.example.proyectoneoland.Data
+package com.example.proyectoneoland.data
 
 import android.app.Application
-import android.util.Log
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.proyectoneoland.Data.App.Companion.getDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -3,7 +3,7 @@ package com.example.proyectoneoland
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.proyectoneoland.principal.FragmentPrincipal
+import com.example.proyectoneoland.fragment_principal.FragmentPrincipal
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
