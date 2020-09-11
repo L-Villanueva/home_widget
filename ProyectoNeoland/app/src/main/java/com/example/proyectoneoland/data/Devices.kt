@@ -12,26 +12,27 @@ data class Devices(
     var pictures: Picture,
     @Embedded
     var widgets: Widget,
-    @Embedded
     var toggle: Boolean,
     @Embedded
     var type: DeviceType
 ) {
-    enum class DeviceType {
+    @PrimaryKey(autoGenerate = true)
+    var uid = 0
 
-        Light,
-        Speaker,
-        Outlet
-
-    }
 }
 
 data class Picture(
-    val pictureOn: Int,
-    val pictureOff: Int
+    var pictureOn: Int,
+    var pictureOff: Int
 )
 
 data class Widget(
-    val widgetOn: Int,
-    val widgetOff: Int
+    var widgetOn: Int,
+    var widgetOff: Int
 )
+enum class DeviceType (){
+
+    Light,
+    Speaker,
+    Outlet
+}

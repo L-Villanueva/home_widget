@@ -10,11 +10,15 @@
       </config>
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bfe84c29-5e3b-4df3-8f5d-4ae43c343b46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/Devices.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/Devices.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +41,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="valueResourceFile" />
         <option value="Kotlin Interface" />
+        <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -47,8 +51,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://L-Villanueva@github.com/L-Villanueva/home_widget.git" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1hGQt026r0FglfvM7DvlgNDJfb3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -148,6 +161,16 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="-1222" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599640194166">
       <screen x="-1920" y="23" width="1920" height="1057" />
@@ -157,10 +180,10 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1205" y="200" width="493" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599729863309" />
-    <state x="-1372" y="291" key="AndroidCreateResourceFileDialog" timestamp="1599730055476">
+    <state x="-1372" y="291" key="AndroidCreateResourceFileDialog" timestamp="1599812063976">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1372" y="291" key="AndroidCreateResourceFileDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599730055476" />
+    <state x="-1372" y="291" key="AndroidCreateResourceFileDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599812063976" />
     <state x="-1105" y="381" key="AndroidCreateXmlResourceDialog" timestamp="1599724854687">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
