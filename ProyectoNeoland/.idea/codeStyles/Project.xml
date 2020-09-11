@@ -17,6 +17,10 @@
           <package name="" alias="true" withSubpackages="true" />
         </value>
       </option>
+<<<<<<< HEAD
+=======
+      <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
+>>>>>>> 3547434cb06a4b9f095c140a36af6448274c0db5
     </JetCodeStyleSettings>
     <codeStyleSettings language="XML">
       <indentOptions>
@@ -130,5 +134,11 @@
         </rules>
       </arrangement>
     </codeStyleSettings>
+<<<<<<< HEAD
+=======
+    <codeStyleSettings language="kotlin">
+      <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
+    </codeStyleSettings>
+>>>>>>> 3547434cb06a4b9f095c140a36af6448274c0db5
   </code_scheme>
 </component>
