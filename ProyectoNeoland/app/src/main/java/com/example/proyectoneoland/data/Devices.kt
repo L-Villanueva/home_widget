@@ -30,9 +30,10 @@ data class Widget(
     var widgetOn: Int,
     var widgetOff: Int
 )
-enum class DeviceType (){
+enum class DeviceType {
 
     Light,
     Speaker,
     Outlet
+
 }

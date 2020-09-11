@@ -15,7 +15,11 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_boton__lightbulb">
+            android:src="@drawable/ic_boton__lightbulb"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
         </com.google.android.material.imageview.ShapeableImageView>
 
         <com.google.android.material.textview.MaterialTextView

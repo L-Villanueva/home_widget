@@ -16,14 +16,14 @@ class MainActivity : AppCompatActivity() {
 
         showFragment(FragmentPrincipal())
 
-        //funcion para salir de la sesion todo agregarlo al boton correcto
+        //funcion para salir de la sesion TODO agregarlo al boton correcto
         buttonEliminar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
         }
     }
 
-    fun showFragment(fragment: Fragment){
+    private fun showFragment(fragment: Fragment){
         val nextfragmentTransaction = supportFragmentManager.beginTransaction()
         nextfragmentTransaction.replace(R.id.frameLayout, fragment)
         nextfragmentTransaction.commit()
