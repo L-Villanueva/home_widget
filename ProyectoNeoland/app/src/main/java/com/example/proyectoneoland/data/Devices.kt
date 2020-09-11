@@ -1,14 +1,20 @@
 package com.example.proyectoneoland.data
 
+import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 data class Devices(
     var name: String,
     var owner: String,
+    @Embedded
     var pictures: Picture,
+    @Embedded
     var widgets: Widget,
+    @Embedded
     var toggle: Boolean,
+    @Embedded
     var type: DeviceType
 ) {
     enum class DeviceType {

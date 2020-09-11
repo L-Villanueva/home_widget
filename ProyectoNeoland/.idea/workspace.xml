@@ -11,7 +11,11 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfe84c29-5e3b-4df3-8f5d-4ae43c343b46" name="Default Changelist" comment="" />
+    <list default="true" id="bfe84c29-5e3b-4df3-8f5d-4ae43c343b46" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/Devices.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/Devices.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,22 +170,26 @@
     </state>
     <state x="-1372" y="238" key="AndroidThemeDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599735301510" />
     <state x="-1372" y="221" key="AndroidThemeDialog/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599647116907" />
-    <state width="1878" height="357" key="GridCell.Tab.0.bottom" timestamp="1599660616801">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1750" height="220" key="GridCell.Tab.0.bottom" timestamp="1599810858889">
+      <screen x="-1920" y="23" width="1920" height="973" />
     </state>
     <state width="1878" height="357" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599660616801" />
-    <state width="1878" height="357" key="GridCell.Tab.0.center" timestamp="1599660616800">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1750" height="220" key="GridCell.Tab.0.bottom/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599810858889" />
+    <state width="1750" height="220" key="GridCell.Tab.0.center" timestamp="1599810858888">
+      <screen x="-1920" y="23" width="1920" height="973" />
     </state>
     <state width="1878" height="357" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599660616800" />
-    <state width="1878" height="357" key="GridCell.Tab.0.left" timestamp="1599660616800">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1750" height="220" key="GridCell.Tab.0.center/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599810858888" />
+    <state width="1750" height="220" key="GridCell.Tab.0.left" timestamp="1599810858888">
+      <screen x="-1920" y="23" width="1920" height="973" />
     </state>
     <state width="1878" height="357" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599660616800" />
-    <state width="1878" height="357" key="GridCell.Tab.0.right" timestamp="1599660616801">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state width="1750" height="220" key="GridCell.Tab.0.left/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599810858888" />
+    <state width="1750" height="220" key="GridCell.Tab.0.right" timestamp="1599810858889">
+      <screen x="-1920" y="23" width="1920" height="973" />
     </state>
     <state width="1878" height="357" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599660616801" />
+    <state width="1750" height="220" key="GridCell.Tab.0.right/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599810858889" />
     <state width="1878" height="357" key="GridCell.Tab.1.bottom" timestamp="1599660616801">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
