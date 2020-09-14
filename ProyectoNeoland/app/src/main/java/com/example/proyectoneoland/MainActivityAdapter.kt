@@ -1,4 +1,4 @@
-package com.example.proyectoneoland.fragment_principal
+package com.example.proyectoneoland
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +8,9 @@ import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoneoland.data.Devices
-import com.example.proyectoneoland.R
 
 
-class ListAdapter: RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class MainActivityAdapter: RecyclerView.Adapter<MainActivityAdapter.ViewHolder>() {
 
     private var list = listOf<Devices>()
 
@@ -23,7 +22,7 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.device_item, parent, false)
         val image = view.findViewById<ImageView>(R.id.imageView)
         val name = view.findViewById<TextView>(R.id.name)
 
@@ -35,9 +34,6 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.root.setOnClickListener {
-
-        }
 
     }
 }

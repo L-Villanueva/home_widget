@@ -15,12 +15,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfe84c29-5e3b-4df3-8f5d-4ae43c343b46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/List.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/Devices.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/Devices.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_list/FragmentList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_list/FragmentList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_principal/FragmentPrincipal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_principal/FragmentPrincipal.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_list/FragmentList.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_list/ListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/ListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_principal/FragmentAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivityAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_principal/FragmentPrincipal.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_principal/FragmentPrincipalViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivityViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_principal.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,17 +82,18 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="com.example.proyectoneoland.principal" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/Data" />
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.proyectoneoland" />
+      <recent name="com.example.proyectoneoland.principal" />
     </key>
     <key name="android.template.90609045">
       <recent name="com.example.proyectoneoland" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/Data" />
     </key>
   </component>
   <component name="RunManager">
@@ -174,14 +180,18 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1222" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599640194166">
+    <state x="-1182" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1600070590056">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1222" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599640194166" />
-    <state x="-1205" y="200" width="493" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1599729863309">
+    <state x="-1182" y="246" key="#com.intellij.ide.util.MemberChooser/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600070590056" />
+    <state x="-1222" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600068917933">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1205" y="200" width="493" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599729863309" />
+    <state x="-1222" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068917933" />
+    <state x="-1205" y="200" width="493" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1600069422424">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state x="-1205" y="200" width="493" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600069422424" />
     <state x="-1372" y="291" key="AndroidCreateResourceFileDialog" timestamp="1600068276803">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
@@ -231,5 +241,9 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state width="1750" height="39" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068784719" />
+    <state x="-1199" y="161" key="refactoring.ChangeSignatureDialog" timestamp="1600070574813">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state x="-1199" y="161" key="refactoring.ChangeSignatureDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600070574813" />
   </component>
 </project>

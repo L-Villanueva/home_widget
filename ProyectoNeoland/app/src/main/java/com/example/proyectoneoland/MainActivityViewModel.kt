@@ -1,4 +1,4 @@
-package com.example.proyectoneoland.fragment_principal
+package com.example.proyectoneoland
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -8,7 +8,7 @@ import com.example.proyectoneoland.data.Devices
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class FragmentPrincipalViewModel (application: Application) : AndroidViewModel(application){
+class MainActivityViewModel (application: Application) : AndroidViewModel(application){
 
     suspend fun cargarBootcamp(): LiveData<List<Devices>> = withContext(Dispatchers.IO){
 
