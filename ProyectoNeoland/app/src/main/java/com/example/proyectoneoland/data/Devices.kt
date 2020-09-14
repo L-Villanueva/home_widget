@@ -13,8 +13,8 @@ data class Devices(
     @Embedded
     var widgets: Widget,
     var toggle: Boolean,
-    @Embedded
-    var type: DeviceType
+    //@Embedded
+    //var type: DeviceType
 ) {
     @PrimaryKey(autoGenerate = true)
     var uid = 0

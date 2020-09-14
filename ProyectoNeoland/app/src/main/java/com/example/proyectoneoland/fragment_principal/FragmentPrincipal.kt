@@ -9,12 +9,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectoneoland.R
+import com.example.proyectoneoland.fragment_list.FragmentList
 import kotlinx.android.synthetic.main.fragment_principal.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class FragmentPrincipal: Fragment(){
+
+    companion object {
+        fun getFragment(): FragmentPrincipal {
+            return FragmentPrincipal()
+        }
+    }
 
     lateinit var model :FragmentPrincipalViewModel
     private val adapter = FragmentAdapter()

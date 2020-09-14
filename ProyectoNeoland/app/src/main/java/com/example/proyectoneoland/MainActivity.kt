@@ -3,6 +3,7 @@ package com.example.proyectoneoland
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.proyectoneoland.fragment_list.FragmentList
 import com.example.proyectoneoland.fragment_principal.FragmentPrincipal
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,6 +17,10 @@ class MainActivity : AppCompatActivity() {
 
         showFragment(FragmentPrincipal())
 
+        floatingActionButton.setOnClickListener {
+            showFragment(FragmentList.getFragment())
+
+        }
         //funcion para salir de la sesion TODO agregarlo al boton correcto
         buttonEliminar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
