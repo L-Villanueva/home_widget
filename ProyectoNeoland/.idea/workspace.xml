@@ -15,17 +15,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfe84c29-5e3b-4df3-8f5d-4ae43c343b46" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/List.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_list/FragmentList.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_list/ListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/ListAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_principal/FragmentAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivityAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_principal/FragmentPrincipal.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/fragment_principal/FragmentPrincipalViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivityViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_principal.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/AppDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/AppDatabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/Devices.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/data/Devices.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/List.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/ListActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/ListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/fragment_list/ListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +48,8 @@
       <list>
         <option value="valueResourceFile" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -86,6 +84,7 @@
       <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.proyectoneoland.list_screen.fragment_list" />
       <recent name="com.example.proyectoneoland" />
       <recent name="com.example.proyectoneoland.principal" />
     </key>
@@ -188,14 +187,14 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1222" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068917933" />
-    <state x="-1205" y="200" width="493" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1600069422424">
+    <state x="-1205" y="200" width="595" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1600073770165">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1205" y="200" width="493" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600069422424" />
-    <state x="-1372" y="291" key="AndroidCreateResourceFileDialog" timestamp="1600068276803">
+    <state x="-1205" y="200" width="595" height="658" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600073770165" />
+    <state x="-1372" y="291" key="AndroidCreateResourceFileDialog" timestamp="1600078777631">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1372" y="291" key="AndroidCreateResourceFileDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068276803" />
+    <state x="-1372" y="291" key="AndroidCreateResourceFileDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600078777631" />
     <state x="-1105" y="381" key="AndroidCreateXmlResourceDialog" timestamp="1599724854687">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
@@ -205,25 +204,25 @@
     </state>
     <state x="-1372" y="238" key="AndroidThemeDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599735301510" />
     <state x="-1372" y="221" key="AndroidThemeDialog/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599647116907" />
-    <state width="1750" height="39" key="GridCell.Tab.0.bottom" timestamp="1600068784719">
+    <state width="1878" height="226" key="GridCell.Tab.0.bottom" timestamp="1600073609447">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1750" height="39" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068784719" />
+    <state width="1878" height="226" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600073609447" />
     <state width="1750" height="220" key="GridCell.Tab.0.bottom/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599810858889" />
-    <state width="1750" height="39" key="GridCell.Tab.0.center" timestamp="1600068784718">
+    <state width="1878" height="226" key="GridCell.Tab.0.center" timestamp="1600073609446">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1750" height="39" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068784718" />
+    <state width="1878" height="226" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600073609446" />
     <state width="1750" height="220" key="GridCell.Tab.0.center/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599810858888" />
-    <state width="1750" height="39" key="GridCell.Tab.0.left" timestamp="1600068784718">
+    <state width="1878" height="226" key="GridCell.Tab.0.left" timestamp="1600073609445">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1750" height="39" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068784718" />
+    <state width="1878" height="226" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600073609445" />
     <state width="1750" height="220" key="GridCell.Tab.0.left/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599810858888" />
-    <state width="1750" height="39" key="GridCell.Tab.0.right" timestamp="1600068784719">
+    <state width="1878" height="226" key="GridCell.Tab.0.right" timestamp="1600073609446">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1750" height="39" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068784719" />
+    <state width="1878" height="226" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600073609446" />
     <state width="1750" height="220" key="GridCell.Tab.0.right/-1920.23.1920.973/0.23.1792.1097@-1920.23.1920.973" timestamp="1599810858889" />
     <state width="1750" height="39" key="GridCell.Tab.1.bottom" timestamp="1600068784719">
       <screen x="-1920" y="23" width="1920" height="1057" />
@@ -241,6 +240,10 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state width="1750" height="39" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600068784719" />
+    <state x="-1183" y="294" key="chooseDestDirectoryDialog" timestamp="1600073547127">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state x="-1183" y="294" key="chooseDestDirectoryDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600073547127" />
     <state x="-1199" y="161" key="refactoring.ChangeSignatureDialog" timestamp="1600070574813">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>

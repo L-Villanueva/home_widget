@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.proyectoneoland.list_screen.ListActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         floatingActionButton.setOnClickListener {
-            val mainIntent = Intent(this, List::class.java)
+            val mainIntent = Intent(this, ListActivity::class.java)
             startActivity(mainIntent)
         }
 

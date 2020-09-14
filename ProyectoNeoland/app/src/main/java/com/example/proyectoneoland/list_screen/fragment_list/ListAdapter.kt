@@ -1,4 +1,4 @@
-package com.example.proyectoneoland.list_screen
+package com.example.proyectoneoland.list_screen.fragment_list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.R
+import com.example.proyectoneoland.list_screen.ListInterface
 
 
 class ListAdapter(var listener: ListInterface): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
@@ -15,6 +16,11 @@ class ListAdapter(var listener: ListInterface): RecyclerView.Adapter<ListAdapter
     private var list = listOf<Devices>()
 
     class ViewHolder(var root: View, var image: ImageView, var name: TextView) : RecyclerView.ViewHolder(root)
+
+    fun updateDevices(devices : List<Devices>){
+        this.list = devices
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
@@ -33,6 +39,5 @@ class ListAdapter(var listener: ListInterface): RecyclerView.Adapter<ListAdapter
             listener.clickList(list[position])
 
         }
-
     }
 }
