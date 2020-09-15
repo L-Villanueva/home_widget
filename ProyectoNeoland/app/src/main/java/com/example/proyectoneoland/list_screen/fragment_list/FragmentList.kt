@@ -5,25 +5,41 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.proyectoneoland.MainActivityViewModel
 import com.example.proyectoneoland.R
 import com.example.proyectoneoland.data.Brand
 import com.example.proyectoneoland.data.DeviceType
+import com.example.proyectoneoland.data.Devices
+import com.example.proyectoneoland.list_screen.ListInterface
 import kotlinx.android.synthetic.main.list_recycler.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
 
-class FragmentList: Fragment() {
+interface FragmentInterface{
+    fun onClick(device: Devices)
+}
 
-    lateinit var adapter: ListAdapter
+class FragmentList(var listener: ListInterface): Fragment(), FragmentInterface {
+
+    private lateinit var adapter: ListAdapter
+    private lateinit var model: FragmentListViewModel
+
 
     companion object {
 
-        val clave_1 = "CLAVE1"
+        const val clave_1 = "CLAVE1"
 
-        fun getFragment(brand: String): FragmentList {
-            FragmentList().apply {
-                arguments?.putString(clave_1, brand)
+        fun getFragment(brand: String,listener: ListInterface): FragmentList {
+            FragmentList(listener).apply {
+                arguments = Bundle().apply {
+                    putString(clave_1, brand)
+                }
+
             }
-            return FragmentList()
+            return FragmentList(listener)
         }
     }
 
@@ -33,14 +49,29 @@ class FragmentList: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = ListAdapter()
-        when (arguments?.getString(clave_1)?.let { stringToBrand(it) }) {
-            Brand.YEELIGHT -> adapter.updateDevices()
-            Brand.PHILIPS -> adapter.updateDevices()
-            Brand.XIAOMI -> adapter.updateDevices()
+        adapter = ListAdapter(this)
+        createRecyclerView()
+
+
+        activity?.let { activity ->
+            model = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(activity.application)).get(
+                FragmentListViewModel::class.java)
+            CoroutineScope(Main).launch {
+                if (arguments?.getString(clave_1)?.capitalize().equals(Brand.YEELIGHT.name.capitalize())){
+                    adapter.updateDevices(LoadBrand(Brand.YEELIGHT))
+                } else if (arguments?.getString(clave_1)?.capitalize().equals(Brand.PHILIPS.name.capitalize())){
+                    adapter.updateDevices(LoadBrand(Brand.PHILIPS))
+                } else if (arguments?.getString(clave_1)?.capitalize().equals(Brand.XIAOMI.name.capitalize())){
+                    adapter.updateDevices(LoadBrand(Brand.XIAOMI))
+                }
+
+            }
         }
     }
 
+    private suspend fun LoadBrand(brand: Brand): List<Devices> {
+        return model.LoadBrand(brand).filter { it.owner.isNullOrEmpty() }
+    }
 
     private fun createRecyclerView() {
         recyclerViewList.layoutManager = LinearLayoutManager(context)
@@ -55,5 +86,9 @@ class FragmentList: Fragment() {
         } else {
             return Brand.PHILIPS
         }
+    }
+
+    override fun onClick(device: Devices) {
+        listener.clickList(device)
     }
 }

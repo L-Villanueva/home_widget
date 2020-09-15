@@ -1,6 +1,9 @@
 package com.example.proyectoneoland.list_screen
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -8,12 +11,14 @@ import com.example.proyectoneoland.R
 import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.list_screen.fragment_add.FragmentAdd
 import com.example.proyectoneoland.list_screen.fragment_list.FragmentList
-import com.example.proyectoneoland.list_screen.fragment_list.ListAdapter
 import kotlinx.android.synthetic.main.activity_list.*
+
 
 interface ListInterface{
     fun clickList(device: Devices)
 }
+//
+
 
 class ListActivity: AppCompatActivity(), ListInterface {
 
@@ -31,16 +36,23 @@ class ListActivity: AppCompatActivity(), ListInterface {
             dropdown_menu.adapter = adapter
         }
 
-        dropdown_menu.setOnItemClickListener { parent, view, position, id ->
+        dropdown_menu.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
 
-            showFragment(FragmentList.getFragment(parent.getItemAtPosition(position).toString()))
+                showFragment(FragmentList.getFragment(selectedItem, this@ListActivity))
+
+            } // to close the onItemSelected
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
 
-    private fun showFragment(fragment : Fragment) {
+
+
+    private fun showFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, fragment)
-
         fragmentTransaction.commit()
     }
 

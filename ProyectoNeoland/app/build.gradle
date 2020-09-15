@@ -5,6 +5,8 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlinx-serialization'
+apply plugin: 'org.jetbrains.kotlin.plugin.serialization'
 
 
 
@@ -48,6 +50,7 @@ dependencies {
     implementation "androidx.room:room-runtime:2.2.5"
     implementation "androidx.room:room-ktx:2.2.5"
     kapt "androidx.room:room-compiler:2.2.5"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC"
 
 
 

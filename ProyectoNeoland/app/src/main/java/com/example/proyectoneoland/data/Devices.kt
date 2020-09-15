@@ -1,36 +1,46 @@
 package com.example.proyectoneoland.data
 
+import android.media.Image
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
+import kotlinx.serialization.Serializable
+
 
 @Entity
+@Serializable
+
 data class Devices(
-    var name: String,
-    var owner: String,
+
+    var defaultName: String,
+    var name: String? = null,
+    var owner: String? = null,
     @Embedded
     var pictures: Picture,
     @Embedded
     var widgets: Widget,
-    var toggle: Boolean,
+    var toggle: Boolean = false,
     var type: DeviceType,
     var brand: Brand
 
-) {
+) : java.io.Serializable {
     @PrimaryKey(autoGenerate = true)
     var uid = 0
 
 }
-
+@Serializable
 data class Picture(
-    var pictureOn: Int,
-    var pictureOff: Int
+    var buttonOn: Int,
+    var buttonOff: Int,
+    var image: Int
 )
-
+@Serializable
 data class Widget(
-    var widgetOn: Int,
-    var widgetOff: Int
+    var widgetLightOn: Int,
+    var widgetLightOff: Int,
+    var widgetDarkOn: Int,
+    var widgetDarkOff: Int
 )
 enum class DeviceType(val value: Int) {
 

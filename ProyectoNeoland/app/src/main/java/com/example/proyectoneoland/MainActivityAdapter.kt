@@ -23,8 +23,8 @@ class MainActivityAdapter: RecyclerView.Adapter<MainActivityAdapter.ViewHolder>(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.device_item, parent, false)
-        val image = view.findViewById<ImageView>(R.id.imageView)
-        val name = view.findViewById<TextView>(R.id.name)
+        val image = view.findViewById<ImageView>(R.id.imageMain)
+        val name = view.findViewById<TextView>(R.id.nameMain)
 
         return ViewHolder(view, image, name)
     }
@@ -34,6 +34,8 @@ class MainActivityAdapter: RecyclerView.Adapter<MainActivityAdapter.ViewHolder>(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.image.setImageResource(list[position].pictures.buttonOff)
+        holder.name.text = list[position].defaultName
 
     }
 }

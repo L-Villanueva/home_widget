@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.proyectoneoland.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,6 +30,33 @@ class App : Application() {
                         CoroutineScope(Dispatchers.IO).launch {
                             withContext(Dispatchers.IO) {
 
+                                val imagesLightbulb = Picture(R.drawable.ic_boton_lightbulb_encendido, R.drawable.ic_boton__lightbulb, R.drawable.ic_lightbulb )
+                                val imagesOutlet = Picture(R.drawable.ic_boton_outlet_encendido_nuevo, R.drawable.ic_boton_outlet, R.drawable.ic_outlet)
+                                val imagesSpeaker = Picture(R.drawable.ic_boton_speaker_encendido, R.drawable.ic_boton_speaker, R.drawable.ic_speaker)
+
+                                val widgetLightbulb = Widget(R.drawable.ic_widget_lightbulb_encencido_light,R.drawable.ic_widget_lightbulb_apagado_light,
+                                    R.drawable.ic_widget_outlet_encendido_dark,R.drawable.ic_widget_outlet_apagado_dark)
+                                val widgetOutlet = Widget(R.drawable.ic_widget_outlet_encendido_light,R.drawable.ic_widget_outlet_apagado_light,
+                                R.drawable.ic_widget_outlet_encendido_dark,R.drawable.ic_widget_outlet_apagado_dark)
+                                val widgetSpeaker = Widget(R.drawable.ic_widget_outlet_encendido_light,R.drawable.ic_widget_outlet_apagado_light,
+                                R.drawable.ic_widget_outlet_encendido_dark,R.drawable.ic_widget_outlet_apagado_dark)
+
+                                val devices = listOf(
+                                    Devices("Bombilla LED", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.XIAOMI),
+                                    Devices("Bombilla LED", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.YEELIGHT),
+                                    Devices("Bombilla LED", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.PHILIPS),
+                                    Devices("Speaker", pictures = imagesSpeaker, widgets = widgetSpeaker, type = DeviceType.SPEAKER,brand = Brand.XIAOMI),
+                                    Devices("Speaker", pictures = imagesSpeaker, widgets = widgetSpeaker, type = DeviceType.SPEAKER,brand = Brand.YEELIGHT),
+                                    Devices("Speaker", pictures = imagesSpeaker, widgets = widgetSpeaker, type = DeviceType.SPEAKER,brand = Brand.PHILIPS),
+                                    Devices("Outlet", pictures = imagesOutlet, widgets = widgetOutlet, type = DeviceType.OUTLET,brand = Brand.XIAOMI),
+                                    Devices("Outlet", pictures = imagesOutlet, widgets = widgetOutlet, type = DeviceType.OUTLET,brand = Brand.YEELIGHT),
+                                    Devices("Outlet", pictures = imagesOutlet, widgets = widgetOutlet, type = DeviceType.OUTLET,brand = Brand.PHILIPS),
+                                    Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.XIAOMI),
+                                    Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.YEELIGHT),
+                                    Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.PHILIPS)
+                                )
+
+                                App.db?.devicesDao()?.insertAll(devices)
                                 }
                             }
                         }

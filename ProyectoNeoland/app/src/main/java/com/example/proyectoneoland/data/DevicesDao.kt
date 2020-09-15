@@ -24,4 +24,7 @@ interface DevicesDao {
 
     @Query("SELECT * FROM Devices")
     fun getAllLive() : LiveData<List<Devices>>
+
+    @Query("SELECT * FROM Devices WHERE Brand LIKE :brand")
+    fun getBrand(brand: Brand) : List<Devices>
 }

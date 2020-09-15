@@ -3,27 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="80dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/image"
+            android:id="@+id/imageMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_boton__lightbulb"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-        </com.google.android.material.imageview.ShapeableImageView>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/name"
+            android:id="@+id/nameMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="5dp"
@@ -36,11 +35,11 @@
             android:textAlignment="center"
             android:textSize="12sp"
             app:flow_verticalBias="1"
-            app:layout_constraintBottom_toBottomOf="@+id/image"
-            app:layout_constraintEnd_toEndOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="@+id/imageMain"
+            app:layout_constraintEnd_toEndOf="@id/imageMain"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/image"
-            app:layout_constraintTop_toTopOf="@id/image"
+            app:layout_constraintStart_toStartOf="@id/imageMain"
+            app:layout_constraintTop_toTopOf="@id/imageMain"
             app:layout_constraintVertical_bias="0.97" />
 
 

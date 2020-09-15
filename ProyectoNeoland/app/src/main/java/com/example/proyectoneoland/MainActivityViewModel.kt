@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 class MainActivityViewModel (application: Application) : AndroidViewModel(application){
 
-    suspend fun cargarBootcamp(): LiveData<List<Devices>> = withContext(Dispatchers.IO){
+    suspend fun LoadDevices(): LiveData<List<Devices>> = withContext(Dispatchers.IO){
 
         return@withContext App.getDatabase(getApplication()).devicesDao().getAllLive()
     }

@@ -8,14 +8,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.R
+import com.example.proyectoneoland.data.Brand
 import com.example.proyectoneoland.list_screen.ListInterface
 
 
-class ListAdapter(var listener: ListInterface): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(var listener: FragmentInterface): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
     private var list = listOf<Devices>()
 
-    class ViewHolder(var root: View, var image: ImageView, var name: TextView) : RecyclerView.ViewHolder(root)
+    class ViewHolder(var root: View, var image: ImageView, var name: TextView, var brand: TextView) : RecyclerView.ViewHolder(root)
 
     fun updateDevices(devices : List<Devices>){
         this.list = devices
@@ -24,10 +25,11 @@ class ListAdapter(var listener: ListInterface): RecyclerView.Adapter<ListAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
-        val image = view.findViewById<ImageView>(R.id.imageView)
-        val name = view.findViewById<TextView>(R.id.name)
+        val image = view.findViewById<ImageView>(R.id.imageList)
+        val name = view.findViewById<TextView>(R.id.nameList)
+        val brand = view.findViewById<TextView>(R.id.brandView)
 
-        return ViewHolder(view, image, name)
+        return ViewHolder(view, image, name, brand)
     }
 
     override fun getItemCount(): Int {
@@ -36,8 +38,10 @@ class ListAdapter(var listener: ListInterface): RecyclerView.Adapter<ListAdapter
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.root.setOnClickListener {
-            listener.clickList(list[position])
-
+            listener.onClick(list[position])
         }
+        holder.image.setImageResource(list[position].pictures.image)
+        holder.name.text = list[position].defaultName
+        holder.brand.text = list[position].brand.name
     }
 }

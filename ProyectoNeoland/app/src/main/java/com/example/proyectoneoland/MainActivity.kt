@@ -38,11 +38,10 @@ class MainActivity : AppCompatActivity() {
         model = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(
                 MainActivityViewModel::class.java
             )
+
         CoroutineScope(Dispatchers.Main).launch {
-            model.cargarBootcamp().value?.let { devices -> adapter.updateDevices(devices) }
-            model.cargarBootcamp().observe(
-                this@MainActivity,
-                Observer { bootcamps -> adapter.updateDevices(bootcamps) })
+            model.LoadDevices().value?.let { devices -> adapter.updateDevices(devices) }
+            model.LoadDevices().observe(this@MainActivity, Observer { devices -> adapter.updateDevices(devices) })
 
         }
     }
