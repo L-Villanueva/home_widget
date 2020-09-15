@@ -7,6 +7,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import kotlinx.android.synthetic.main.activity_auth.*
 
 class AuthActivity : AppCompatActivity() {
@@ -21,7 +24,7 @@ class AuthActivity : AppCompatActivity() {
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         FirebaseAuth.getInstance().currentUser.let {
             if (it != null) {
-                showHome(it.email.toString())
+                showHome()
             }
         }
     }
@@ -35,50 +38,49 @@ class AuthActivity : AppCompatActivity() {
         buttonAcceder.setOnClickListener {
             if (!editPassword.text.isNullOrBlank() && !editEmail.text.isNullOrBlank()) {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(editEmail.text.toString(), editPassword.text.toString()).addOnCompleteListener {
-                    if (it.isSuccessful){
+                    if (it.isSuccessful) {
                         //si se inicia sesion correctamente en firebase se viaja a la proxima pantalla enviando el correo electronico del usuario
-                        showHome(it.result.user?.email.toString())
-                    } else {
-                        // si hay un error al autenticar se muestra
-                        showAlert()
+                        showHome()
+                    }
+                }.addOnFailureListener {
+                    when (it){
+                        is FirebaseAuthInvalidCredentialsException -> showAlert(getString(R.string.wrong_credentials))
+                        else -> showAlert()
                     }
                 }
-
-            } else {
-                Toast.makeText(this,"Email o Contraseña incorrecto", Toast.LENGTH_LONG).show()
             }
         }
         //muy parecido al boton de iniciar sesion pero para crear una cuenta nueva TODO unir las dos en una sola funcion
         textCrear.setOnClickListener {
             if (!editPassword.text.isNullOrBlank() && !editEmail.text.isNullOrBlank()) {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(editEmail.text.toString(), editPassword.text.toString()).addOnCompleteListener {
-                    if (it.isSuccessful){
-                        Toast.makeText(this,"Usuario creado", Toast.LENGTH_LONG).show()
-                    } else {
-                        showAlert()
+                    if (it.isSuccessful) {
+                        Toast.makeText(this, "User created", Toast.LENGTH_LONG).show()
+                    }
+                }.addOnFailureListener {
+                    when (it){
+                        is FirebaseAuthWeakPasswordException -> it.reason?.let { it1 -> showAlert(it1) }
+                        is FirebaseAuthUserCollisionException -> showAlert("Email ${editEmail.text} already in use")
+                        else -> showAlert()
                     }
                 }
-
-            } else {
-                Toast.makeText(this,"Email o Contraseña incorrecto", Toast.LENGTH_LONG).show()
             }
         }
     }
 
 
 
-    private fun showHome(user :String) {
+    private fun showHome() {
         val mainIntent = Intent(this, MainActivity::class.java)
-        mainIntent.putExtra("CLAVE_1", user)
         startActivity(mainIntent)
     }
 
-    private fun showAlert() {
+    private fun showAlert(alert: String = getString(R.string.UnknownError)) {
         val builder = AlertDialog.Builder(this)
         builder.apply {
             setTitle("Error")
-            setMessage("Se ha producido un error autenticando al usuario")
-            setPositiveButton("Aceptar", null)
+            setMessage(alert)
+            setPositiveButton(getString(R.string.accept), null)
             create()
         }
         builder.show()

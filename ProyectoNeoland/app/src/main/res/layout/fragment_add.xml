@@ -10,11 +10,11 @@
         android:id="@+id/defaultName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginVertical="20dp"
         android:gravity="center"
         android:maxLines="1"
         android:text="Name"
-        android:textSize="36dp"
+        android:textSize="28dp"
         android:layout_weight="0"/>
 
     <ImageView
@@ -25,6 +25,7 @@
         android:layout_weight="1"
         android:scaleType="fitCenter"
         android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="20dp"
         app:srcCompat="@drawable/ic_boton__lightbulb" />
 
 

@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.proyectoneoland.R
 import com.example.proyectoneoland.data.Devices
+import com.example.proyectoneoland.list_screen.ListInterface
+import com.example.proyectoneoland.list_screen.fragment_list.FragmentList
 import kotlinx.android.synthetic.main.fragment_add.*
 
 class FragmentAdd: Fragment() {
@@ -18,12 +20,16 @@ class FragmentAdd: Fragment() {
 
         val clave_2 = "CLAVE2"
 
-        fun getFragment(device: Devices): FragmentAdd {
-            FragmentAdd().apply {
-                arguments?.putSerializable(clave_2, device)
-            }
-
+        fun getFragment(): FragmentAdd {
             return FragmentAdd()
+        }
+
+        fun setArgument(device: Devices): FragmentAdd {
+            val fragment = FragmentAdd.getFragment()
+            fragment.arguments = Bundle().apply {
+                putSerializable(clave_2, device)
+            }
+            return fragment
         }
     }
 
@@ -35,7 +41,7 @@ class FragmentAdd: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val device = arguments?.getSerializable(clave_2) as Devices
-        defaultName.text = device.name
+        defaultName.text = device.defaultName
         itemImage.setImageResource(device.pictures.buttonOff)
 
         activity?.let {

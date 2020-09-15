@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectoneoland.list_screen.ListActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -40,14 +41,16 @@ class MainActivity : AppCompatActivity() {
             )
 
         CoroutineScope(Dispatchers.Main).launch {
-            model.LoadDevices().value?.let { devices -> adapter.updateDevices(devices) }
-            model.LoadDevices().observe(this@MainActivity, Observer { devices -> adapter.updateDevices(devices) })
+
+            model.LoadDevices().value?.filter { it.owner.equals(FirebaseAuth.getInstance().currentUser?.email) }.let { devices ->
+                if (!devices.isNullOrEmpty()) adapter.updateDevices(devices) }
+            //model.LoadDevices().observe(this@MainActivity, Observer { devices -> adapter.updateDevices(devices) })
 
         }
     }
 
     private fun createRecyclerView() {
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = adapter
     }
 }

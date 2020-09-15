@@ -57,6 +57,9 @@ class ListActivity: AppCompatActivity(), ListInterface {
     }
 
     override fun clickList(device: Devices) {
-        showFragment(FragmentAdd.getFragment(device))
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frameLayout, FragmentAdd.setArgument(device))
+        fragmentTransaction.commitNow()
+
     }
 }
