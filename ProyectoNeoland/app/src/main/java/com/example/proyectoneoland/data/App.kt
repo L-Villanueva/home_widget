@@ -30,9 +30,9 @@ class App : Application() {
                         CoroutineScope(Dispatchers.IO).launch {
                             withContext(Dispatchers.IO) {
 
-                                val imagesLightbulb = Picture(R.drawable.ic_boton_lightbulb_encendido, R.drawable.ic_boton__lightbulb, R.drawable.ic_lightbulb )
-                                val imagesOutlet = Picture(R.drawable.ic_boton_outlet_encendido_nuevo, R.drawable.ic_boton_outlet, R.drawable.ic_outlet)
-                                val imagesSpeaker = Picture(R.drawable.ic_boton_speaker_encendido, R.drawable.ic_boton_speaker, R.drawable.ic_speaker)
+                                val imagesLightbulb = Picture(R.drawable.ic_boton_lightbulb_encendido, R.drawable.ic_boton__lightbulb )
+                                val imagesOutlet = Picture(R.drawable.ic_boton_outlet_encendido_nuevo, R.drawable.ic_boton_outlet)
+                                val imagesSpeaker = Picture(R.drawable.ic_boton_speaker_encendido, R.drawable.ic_boton_speaker)
 
                                 val widgetLightbulb = Widget(R.drawable.ic_widget_lightbulb_encencido_light,R.drawable.ic_widget_lightbulb_apagado_light,
                                     R.drawable.ic_widget_outlet_encendido_dark,R.drawable.ic_widget_outlet_apagado_dark)

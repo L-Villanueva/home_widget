@@ -33,7 +33,6 @@ data class Devices(
 data class Picture(
     var buttonOn: Int,
     var buttonOff: Int,
-    var image: Int
 )
 @Serializable
 data class Widget(

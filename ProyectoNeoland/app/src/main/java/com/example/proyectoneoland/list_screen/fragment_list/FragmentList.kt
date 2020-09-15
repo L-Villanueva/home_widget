@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.list_recycler.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
+import java.util.*
 
 interface FragmentInterface{
     fun onClick(device: Devices)
@@ -26,20 +27,22 @@ class FragmentList(var listener: ListInterface): Fragment(), FragmentInterface {
 
     private lateinit var adapter: ListAdapter
     private lateinit var model: FragmentListViewModel
-
+    private lateinit var brandSelected: String
 
     companion object {
 
         const val clave_1 = "CLAVE1"
 
-        fun getFragment(brand: String,listener: ListInterface): FragmentList {
-            FragmentList(listener).apply {
-                arguments = Bundle().apply {
-                    putString(clave_1, brand)
-                }
 
-            }
+        fun getFragment(listener: ListInterface): FragmentList {
             return FragmentList(listener)
+        }
+        fun setArgument(brand: String, listener: ListInterface): FragmentList{
+            val fragment = getFragment(listener)
+            fragment.arguments = Bundle().apply {
+                putString(clave_1, brand)
+            }
+            return fragment
         }
     }
 
@@ -53,23 +56,24 @@ class FragmentList(var listener: ListInterface): Fragment(), FragmentInterface {
         createRecyclerView()
 
 
+
         activity?.let { activity ->
             model = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(activity.application)).get(
                 FragmentListViewModel::class.java)
-            CoroutineScope(Main).launch {
-                if (arguments?.getString(clave_1)?.capitalize().equals(Brand.YEELIGHT.name.capitalize())){
-                    adapter.updateDevices(LoadBrand(Brand.YEELIGHT))
-                } else if (arguments?.getString(clave_1)?.capitalize().equals(Brand.PHILIPS.name.capitalize())){
-                    adapter.updateDevices(LoadBrand(Brand.PHILIPS))
-                } else if (arguments?.getString(clave_1)?.capitalize().equals(Brand.XIAOMI.name.capitalize())){
-                    adapter.updateDevices(LoadBrand(Brand.XIAOMI))
-                }
 
+        }
+        CoroutineScope(Main).launch {
+            when (arguments?.getString(clave_1).toString().toUpperCase()) {
+
+                Brand.YEELIGHT.name -> { adapter.updateDevices(loadBrand(Brand.YEELIGHT)) }
+                Brand.PHILIPS.name -> { adapter.updateDevices(loadBrand(Brand.PHILIPS)) }
+                Brand.XIAOMI.name -> { adapter.updateDevices(loadBrand(Brand.XIAOMI)) }
             }
+
         }
     }
 
-    private suspend fun LoadBrand(brand: Brand): List<Devices> {
+    private suspend fun loadBrand(brand: Brand): List<Devices> {
         return model.LoadBrand(brand).filter { it.owner.isNullOrEmpty() }
     }
 

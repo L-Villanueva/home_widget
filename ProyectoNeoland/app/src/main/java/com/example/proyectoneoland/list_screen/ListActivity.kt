@@ -40,7 +40,7 @@ class ListActivity: AppCompatActivity(), ListInterface {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedItem = parent.getItemAtPosition(position).toString()
 
-                showFragment(FragmentList.getFragment(selectedItem, this@ListActivity))
+                showFragment(FragmentList.setArgument( selectedItem,this@ListActivity))
 
             } // to close the onItemSelected
 

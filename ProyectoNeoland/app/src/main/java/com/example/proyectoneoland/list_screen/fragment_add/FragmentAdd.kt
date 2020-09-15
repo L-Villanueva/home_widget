@@ -36,7 +36,7 @@ class FragmentAdd: Fragment() {
 
         val device = arguments?.getSerializable(clave_2) as Devices
         defaultName.text = device.name
-        itemImage.setImageResource(device.pictures.image)
+        itemImage.setImageResource(device.pictures.buttonOff)
 
         activity?.let {
             model = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(it.application)).get(

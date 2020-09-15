@@ -16,27 +16,21 @@
 
         <ImageView
             android:id="@+id/imageList"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_lightbulb" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginStart="6dp">
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_boton__lightbulb" />
+
             <TextView
                 android:id="@+id/nameList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
-                android:textSize="32dp" />
-            <TextView
-                android:id="@+id/brandView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="brand"/>
+                android:textSize="24dp"
+                android:layout_marginStart="8dp"/>
 
-        </LinearLayout>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

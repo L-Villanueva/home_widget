@@ -16,7 +16,7 @@ class ListAdapter(var listener: FragmentInterface): RecyclerView.Adapter<ListAda
 
     private var list = listOf<Devices>()
 
-    class ViewHolder(var root: View, var image: ImageView, var name: TextView, var brand: TextView) : RecyclerView.ViewHolder(root)
+    class ViewHolder(var root: View, var image: ImageView, var name: TextView) : RecyclerView.ViewHolder(root)
 
     fun updateDevices(devices : List<Devices>){
         this.list = devices
@@ -27,9 +27,8 @@ class ListAdapter(var listener: FragmentInterface): RecyclerView.Adapter<ListAda
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
         val image = view.findViewById<ImageView>(R.id.imageList)
         val name = view.findViewById<TextView>(R.id.nameList)
-        val brand = view.findViewById<TextView>(R.id.brandView)
 
-        return ViewHolder(view, image, name, brand)
+        return ViewHolder(view, image, name)
     }
 
     override fun getItemCount(): Int {
@@ -40,8 +39,8 @@ class ListAdapter(var listener: FragmentInterface): RecyclerView.Adapter<ListAda
         holder.root.setOnClickListener {
             listener.onClick(list[position])
         }
-        holder.image.setImageResource(list[position].pictures.image)
+        holder.image.setImageResource(list[position].pictures.buttonOff)
         holder.name.text = list[position].defaultName
-        holder.brand.text = list[position].brand.name
+
     }
 }
