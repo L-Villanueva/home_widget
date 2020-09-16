@@ -73,6 +73,7 @@ class AuthActivity : AppCompatActivity() {
     private fun showHome() {
         val mainIntent = Intent(this, MainActivity::class.java)
         startActivity(mainIntent)
+        finish()
     }
 
     private fun showAlert(alert: String = getString(R.string.UnknownError)) {

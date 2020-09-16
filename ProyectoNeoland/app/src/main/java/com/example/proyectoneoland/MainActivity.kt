@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() , DeleteInterface{
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
         }*/
+
         floatingActionButton.setOnClickListener {
             showList()
         }
@@ -101,6 +102,8 @@ class MainActivity : AppCompatActivity() , DeleteInterface{
             }
             if (devices.isNullOrEmpty()){
                 showList()
+                finish()
+
             } else {
                 adapter.updateDevices(devices)
             }
@@ -112,6 +115,5 @@ class MainActivity : AppCompatActivity() , DeleteInterface{
     private fun showList() {
         val mainIntent = Intent(this, ListActivity::class.java)
         startActivity(mainIntent)
-
     }
 }

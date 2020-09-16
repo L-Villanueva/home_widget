@@ -16,12 +16,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bfe84c29-5e3b-4df3-8f5d-4ae43c343b46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/AuthActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/AuthActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivityAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivityAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/fragment_add/FragmentAdd.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/fragment_add/FragmentAdd.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/fragment_add/FragmentAddViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/fragment_add/FragmentAddViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/ListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/list_screen/ListActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,10 +181,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1182" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1600259887396">
+    <state x="-1182" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1600265340394">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1182" y="246" key="#com.intellij.ide.util.MemberChooser/-1920.23.1920.1057/0.23.1792.1007@-1920.23.1920.1057" timestamp="1600259887396" />
+    <state x="-1182" y="246" key="#com.intellij.ide.util.MemberChooser/-1920.23.1920.1057/0.23.1792.1007@-1920.23.1920.1057" timestamp="1600265340394" />
     <state x="-1182" y="246" key="#com.intellij.ide.util.MemberChooser/-1920.23.1920.1057/0.23.1792.1010@-1920.23.1920.1057" timestamp="1600249777405" />
     <state x="-1182" y="246" key="#com.intellij.ide.util.MemberChooser/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600155555363" />
     <state x="-1182" y="228" key="#com.intellij.ide.util.MemberChooser/-1920.23.1920.970/0.23.1792.1097@-1920.23.1920.970" timestamp="1600254282174" />
@@ -284,9 +283,10 @@
     <state width="1878" height="314" key="GridCell.Tab.1.right/-1920.23.1920.970/0.23.1792.1097@-1920.23.1920.970" timestamp="1600252797105" />
     <state width="1750" height="330" key="GridCell.Tab.1.right/0.23.1792.1010@0.23.1792.1010" timestamp="1600190900431" />
     <state width="1750" height="330" key="GridCell.Tab.1.right/0.23.1792.1013@0.23.1792.1013" timestamp="1600178768937" />
-    <state x="-1367" y="260" key="IDE.errors.dialog" timestamp="1600157664116">
+    <state x="-1367" y="260" key="IDE.errors.dialog" timestamp="1600265036214">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state x="-1367" y="260" key="IDE.errors.dialog/-1920.23.1920.1057/0.23.1792.1007@-1920.23.1920.1057" timestamp="1600265036214" />
     <state x="-1367" y="260" key="IDE.errors.dialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600157664116" />
     <state x="-1183" y="294" key="chooseDestDirectoryDialog" timestamp="1600160866133">
       <screen x="-1920" y="23" width="1920" height="1057" />

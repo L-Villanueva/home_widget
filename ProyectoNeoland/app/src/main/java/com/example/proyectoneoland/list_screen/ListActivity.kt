@@ -33,12 +33,13 @@ interface BackPressed{
 
 class ListActivity: AppCompatActivity(), ListInterface,BackPressed{
 
-    var fragment: FragmentAdd? = null
+    private var fragment: FragmentAdd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_list)
+
 
 
 
@@ -50,10 +51,14 @@ class ListActivity: AppCompatActivity(), ListInterface,BackPressed{
         }
 
         dropdown_menu.onItemSelectedListener = object : OnItemSelectedListener {
+
+
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedItem = parent.getItemAtPosition(position).toString()
-
-                showFragment(FragmentList.setArgument( selectedItem,this@ListActivity))
+                if (selectedItem.length > 1) {
+                    materialCardView2.visibility = View.VISIBLE
+                    showFragment(FragmentList.setArgument(selectedItem, this@ListActivity))
+                }
 
             } // to close the onItemSelected
 
@@ -74,6 +79,7 @@ class ListActivity: AppCompatActivity(), ListInterface,BackPressed{
     private fun showFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, fragment)
+        fragmentTransaction.disallowAddToBackStack()
         fragmentTransaction.commit()
     }
 

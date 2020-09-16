@@ -7,7 +7,7 @@
     <string name="accept">Accept</string>
 
     <string-array name="Brands">
-
+        <item></item>
         <item>Xiaomi</item>
         <item>Philips</item>
         <item>Yeelight</item>
