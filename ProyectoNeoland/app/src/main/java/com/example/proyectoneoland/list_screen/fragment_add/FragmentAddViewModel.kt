@@ -13,9 +13,4 @@ class FragmentAddViewModel(application: Application) : AndroidViewModel(applicat
 
         App.getDatabase(getApplication()).devicesDao().insert(device)
     }
-
-    suspend fun modifyDevice(device: Devices) = withContext (IO) {
-
-        App.getDatabase(getApplication()).devicesDao().update(device)
-    }
 }

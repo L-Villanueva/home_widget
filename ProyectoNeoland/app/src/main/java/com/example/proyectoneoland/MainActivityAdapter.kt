@@ -1,5 +1,10 @@
 package com.example.proyectoneoland
 
+import android.content.ClipData
+import android.content.ClipDescription
+import android.os.Build
+import android.os.Build.VERSION_CODES.N
+import android.view.DragEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +20,33 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
 
     private var list = listOf<Devices>()
     private var delete = false
+
+    //intendo de hacer que se eliminen los items a traves de un drag
+    private val onLongClickListener = View.OnLongClickListener { view: View ->
+        (view as? View)?.let {
+            val item = ClipData.Item(it.tag as? CharSequence)
+            val dragData = ClipData(
+                it.tag as? CharSequence,
+                arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
+                item
+            )
+            val myShadow = View.DragShadowBuilder(it)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                it.startDragAndDrop(dragData, myShadow, null, 0)
+            } else {
+                it.startDrag(dragData, myShadow, null, 0)
+            }
+
+            true
+        }
+        false
+    }
+
+
+
+
+
 
     class ViewHolder(var root: View, var image: ImageView, var name: TextView, var delete: FloatingActionButton) : RecyclerView.ViewHolder(root)
 
@@ -70,6 +102,8 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
         } else {
             holder.delete.visibility = View.GONE
         }
+
+
     }
 
 }

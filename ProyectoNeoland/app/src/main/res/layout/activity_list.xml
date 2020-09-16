@@ -81,7 +81,7 @@
                 android:src="@drawable/ic_list" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/buttonEliminar"
+                android:id="@+id/buttonDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"

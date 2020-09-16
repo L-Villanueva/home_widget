@@ -27,9 +27,9 @@ class FragmentAdd(val listener : BackPressed): Fragment() {
     companion object {
         private lateinit var device: Devices
 
-        val clave_2 = "CLAVE2"
+        const val clave_2 = "CLAVE2"
 
-        fun getFragment(listener: BackPressed): FragmentAdd {
+        private fun getFragment(listener: BackPressed): FragmentAdd {
             return FragmentAdd(listener)
         }
 
