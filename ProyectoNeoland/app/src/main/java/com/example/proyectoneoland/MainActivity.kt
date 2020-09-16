@@ -7,17 +7,22 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.list_screen.ListActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+interface DeleteInterface{
+    fun delete(device: Devices)
+}
+class MainActivity : AppCompatActivity() , DeleteInterface{
 
     lateinit var model: MainActivityViewModel
-    private val adapter = MainActivityAdapter()
+    private val adapter = MainActivityAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,32 +30,61 @@ class MainActivity : AppCompatActivity() {
         createRecyclerView()
 
         //funcion para salir de la sesion TODO agregarlo al boton correcto
-        buttonEliminar.setOnClickListener {
+        /*buttonEliminar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
-        }
-
+        }*/
         floatingActionButton.setOnClickListener {
-            val mainIntent = Intent(this, ListActivity::class.java)
-            startActivity(mainIntent)
+            showList()
         }
-
 
         model = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(
                 MainActivityViewModel::class.java
             )
 
-        CoroutineScope(Dispatchers.Main).launch {
-
-            model.LoadDevices().value?.filter { it.owner.equals(FirebaseAuth.getInstance().currentUser?.email) }.let { devices ->
-                if (!devices.isNullOrEmpty()) adapter.updateDevices(devices) }
-            //model.LoadDevices().observe(this@MainActivity, Observer { devices -> adapter.updateDevices(devices) })
-
+        updateAdapter()
+        buttonEliminar.setOnClickListener {
+            adapter.showDelete()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateAdapter()
     }
 
     private fun createRecyclerView() {
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = adapter
+    }
+
+    override fun delete(device: Devices) {
+        CoroutineScope(Main).launch {
+            model.deleteDevice(device)
+        }
+        updateAdapter()
+    }
+    private fun updateAdapter(){
+        CoroutineScope(Main).launch {
+            val devices = mutableListOf<Devices>()
+            model.LoadDevices().forEach {
+                if (it.owner.equals(FirebaseAuth.getInstance().currentUser?.email)){
+                    devices.add(it)
+                }
+            }
+            if (devices.isNullOrEmpty()){
+                showList()
+            } else {
+                adapter.updateDevices(devices)
+            }
+            //model.LoadDevices().observe(this@MainActivity, Observer { devices -> adapter.updateDevices(devices) })
+
+        }
+    }
+
+    private fun showList() {
+        val mainIntent = Intent(this, ListActivity::class.java)
+        startActivity(mainIntent)
+
     }
 }

@@ -44,11 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <com.firebase.ui.auth.ui.phone.SpacedEditText
-                android:id="@+id/editEmail"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editNameAdd"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="15"
                 android:hint="Enter Name" />
 

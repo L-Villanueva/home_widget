@@ -7,23 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.proyectoneoland.MainActivityViewModel
 import com.example.proyectoneoland.R
 import com.example.proyectoneoland.data.Brand
-import com.example.proyectoneoland.data.DeviceType
 import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.list_screen.ListInterface
 import kotlinx.android.synthetic.main.list_recycler.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
-import java.util.*
 
 interface FragmentInterface{
     fun onClick(device: Devices)
 }
 
-class FragmentList(var listener: ListInterface): Fragment(), FragmentInterface {
+class FragmentList(private var listener: ListInterface): Fragment(), FragmentInterface {
 
     private lateinit var adapter: ListAdapter
     private lateinit var model: FragmentListViewModel
@@ -74,22 +71,12 @@ class FragmentList(var listener: ListInterface): Fragment(), FragmentInterface {
     }
 
     private suspend fun loadBrand(brand: Brand): List<Devices> {
-        return model.LoadBrand(brand).filter { it.owner.isNullOrEmpty() }
+        return model.loadBrand(brand).filter { it.owner.isNullOrEmpty() }
     }
 
     private fun createRecyclerView() {
         recyclerViewList.layoutManager = LinearLayoutManager(context)
         recyclerViewList.adapter = adapter
-    }
-
-    private fun stringToBrand(brand: String): Brand{
-        if (brand.capitalize() == Brand.YEELIGHT.name) {
-            return Brand.YEELIGHT
-        } else if (brand.capitalize() == (Brand.XIAOMI.name)) {
-            return Brand.XIAOMI
-        } else {
-            return Brand.PHILIPS
-        }
     }
 
     override fun onClick(device: Devices) {

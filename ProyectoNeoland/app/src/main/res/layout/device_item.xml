@@ -10,6 +10,21 @@
         android:layout_width="115dp"
         android:layout_height="wrap_content">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deleteFloatingAction"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:foreground="@drawable/ic_bin"
+            android:visibility="gone"
+            app:backgroundTint="@color/design_default_color_error"
+            app:layout_constraintBottom_toBottomOf="@+id/imageMain"
+            app:layout_constraintEnd_toEndOf="@id/imageMain"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="@id/imageMain"
+            app:layout_constraintTop_toTopOf="@id/imageMain"
+            app:layout_constraintVertical_bias="0"
+            app:useCompatPadding="false" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageMain"
             android:layout_width="match_parent"
@@ -38,7 +53,6 @@
             app:flow_verticalBias="1"
             app:layout_constraintBottom_toBottomOf="@+id/imageMain"
             app:layout_constraintEnd_toEndOf="@id/imageMain"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/imageMain"
             app:layout_constraintTop_toTopOf="@id/imageMain"
             app:layout_constraintVertical_bias="0.97" />

@@ -10,8 +10,12 @@ import kotlinx.coroutines.withContext
 
 class MainActivityViewModel (application: Application) : AndroidViewModel(application){
 
-    suspend fun LoadDevices(): LiveData<List<Devices>> = withContext(Dispatchers.IO){
+    suspend fun LoadDevices(): List<Devices> = withContext(Dispatchers.IO){
 
-        return@withContext App.getDatabase(getApplication()).devicesDao().getAllLive()
+        return@withContext App.getDatabase(getApplication()).devicesDao().getAll()
+    }
+    suspend fun deleteDevice(device: Devices)= withContext(Dispatchers.IO){
+
+        App.getDatabase(getApplication()).devicesDao().delete(device)
     }
 }

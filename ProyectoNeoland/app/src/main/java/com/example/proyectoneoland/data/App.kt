@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.proyectoneoland.R
+import com.facebook.stetho.Stetho
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -56,7 +57,7 @@ class App : Application() {
                                     Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.PHILIPS)
                                 )
 
-                                App.db?.devicesDao()?.insertAll(devices)
+                                App.db?.devicesDao()?.insertAll(devices.shuffled())
                                 }
                             }
                         }
@@ -67,6 +68,7 @@ class App : Application() {
 
         override fun onCreate() {
             super.onCreate()
+            Stetho.initializeWithDefaults(this)
             getDatabase(this)
         }
     }

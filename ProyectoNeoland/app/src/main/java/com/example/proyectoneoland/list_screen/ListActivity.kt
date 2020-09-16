@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
+import android.widget.FrameLayout
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.proyectoneoland.R
@@ -12,15 +14,26 @@ import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.list_screen.fragment_add.FragmentAdd
 import com.example.proyectoneoland.list_screen.fragment_list.FragmentList
 import kotlinx.android.synthetic.main.activity_list.*
+import kotlinx.android.synthetic.main.fragment_add.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
 
 
 interface ListInterface{
     fun clickList(device: Devices)
 }
+
+interface BackPressed{
+    fun backPressed()
+}
+
 //
 
 
-class ListActivity: AppCompatActivity(), ListInterface {
+class ListActivity: AppCompatActivity(), ListInterface,BackPressed{
+
+    var fragment: FragmentAdd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +59,14 @@ class ListActivity: AppCompatActivity(), ListInterface {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+
+        floatingActionButtonList.setOnClickListener {
+            CoroutineScope(Main).launch {
+                fragment?.let {
+                    it.createDevice()
+                }
+            }
+        }
     }
 
 
@@ -58,8 +79,15 @@ class ListActivity: AppCompatActivity(), ListInterface {
 
     override fun clickList(device: Devices) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, FragmentAdd.setArgument(device))
+        fragment = FragmentAdd.setArgument(device, this)
+        fragment?.let {
+            fragmentTransaction.replace(R.id.frameLayout,it)
+        }
         fragmentTransaction.commitNow()
 
+    }
+
+    override fun backPressed() {
+        onBackPressed()
     }
 }

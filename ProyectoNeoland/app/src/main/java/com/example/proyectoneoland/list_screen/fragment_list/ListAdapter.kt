@@ -12,7 +12,7 @@ import com.example.proyectoneoland.data.Brand
 import com.example.proyectoneoland.list_screen.ListInterface
 
 
-class ListAdapter(var listener: FragmentInterface): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(private var listener: FragmentInterface): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
     private var list = listOf<Devices>()
 
