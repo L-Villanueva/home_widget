@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_add.*
 
 
 
-class FragmentAdd(val listener : BackPressed): Fragment() {
+class FragmentAdd(private val listener : BackPressed): Fragment() {
 
     private lateinit var model: FragmentAddViewModel
 

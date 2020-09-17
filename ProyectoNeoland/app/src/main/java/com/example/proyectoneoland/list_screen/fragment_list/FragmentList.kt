@@ -31,7 +31,7 @@ class FragmentList(private var listener: ListInterface): Fragment(), FragmentInt
         const val clave_1 = "CLAVE1"
 
 
-        fun getFragment(listener: ListInterface): FragmentList {
+        private fun getFragment(listener: ListInterface): FragmentList {
             return FragmentList(listener)
         }
         fun setArgument(brand: String, listener: ListInterface): FragmentList{

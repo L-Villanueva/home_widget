@@ -12,11 +12,6 @@ import kotlinx.coroutines.withContext
 
 class FragmentListViewModel (application: Application) : AndroidViewModel(application){
 
-    suspend fun LoadDevices(): List<Devices> = withContext(Dispatchers.IO){
-
-        return@withContext App.getDatabase(getApplication()).devicesDao().getAll()
-    }
-
     suspend fun loadBrand(brand: Brand): List<Devices> = withContext(IO){
 
         return@withContext App.getDatabase(getApplication()).devicesDao().getBrand(brand)

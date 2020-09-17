@@ -11,10 +11,13 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import kotlinx.android.synthetic.main.activity_auth.*
+import kotlin.system.exitProcess
 
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
+
+
 
     override fun onStart() {
         super.onStart()
@@ -68,6 +71,11 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        if (!intent.getBooleanExtra("clave", false)) {
+            super.onBackPressed()
+        }
+    }
 
 
     private fun showHome() {
