@@ -35,12 +35,12 @@ class App : Application() {
                                 val imagesOutlet = Picture(R.drawable.ic_boton_outlet_encendido_nuevo, R.drawable.ic_boton_outlet)
                                 val imagesSpeaker = Picture(R.drawable.ic_boton_speaker_encendido, R.drawable.ic_boton_speaker)
 
-                                val widgetLightbulb = Widget(R.drawable.ic_widget_lightbulb_encencido_light,R.drawable.ic_widget_lightbulb_apagado_light,
-                                    R.drawable.ic_widget_outlet_encendido_dark,R.drawable.ic_widget_outlet_apagado_dark)
-                                val widgetOutlet = Widget(R.drawable.ic_widget_outlet_encendido_light,R.drawable.ic_widget_outlet_apagado_light,
-                                R.drawable.ic_widget_outlet_encendido_dark,R.drawable.ic_widget_outlet_apagado_dark)
-                                val widgetSpeaker = Widget(R.drawable.ic_widget_outlet_encendido_light,R.drawable.ic_widget_outlet_apagado_light,
-                                R.drawable.ic_widget_outlet_encendido_dark,R.drawable.ic_widget_outlet_apagado_dark)
+                                val widgetLightbulb = Widget(R.drawable.ic_widget_lightbulb_light_on,R.drawable.ic_widget_lightbulb_light_off,
+                                    R.drawable.ic_widget_lightbulb_dark_on,R.drawable.ic_widget_lightbulb_dark_off)
+                                val widgetOutlet = Widget(R.drawable.ic_widget_outlet_light_on,R.drawable.ic_widget_outlet_light_off,
+                                R.drawable.ic_widget_outlet_dark_on,R.drawable.ic_widget_outlet_dark_off)
+                                val widgetSpeaker = Widget(R.drawable.ic_widget_speaker_light_on,R.drawable.ic_widget_speaker_light_off,
+                                R.drawable.ic_widget_speaker_dark_on,R.drawable.ic_widget_speaker_dark_off)
 
                                 val devices = listOf(
                                     Devices("Bombilla LED", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.XIAOMI),
