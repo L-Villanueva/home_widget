@@ -79,7 +79,7 @@ class AuthActivity : AppCompatActivity() {
     private fun showAlert(alert: String = getString(R.string.UnknownError)) {
         val builder = AlertDialog.Builder(this)
         builder.apply {
-            setTitle("Error")
+            setTitle(getString(R.string.error))
             setMessage(alert)
             setPositiveButton(getString(R.string.accept), null)
             create()

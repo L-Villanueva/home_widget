@@ -1,11 +1,15 @@
 package com.example.proyectoneoland
 
 import android.content.ClipData
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.DragEvent
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -19,9 +23,13 @@ import kotlinx.coroutines.launch
 
 interface DeleteInterface{
     fun delete(device: Devices)
-    fun getDelete(): ImageView
+
 }
-class MainActivity : AppCompatActivity() , DeleteInterface{
+
+interface DataChangeListener{
+    fun dataChanged()
+}
+class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
 
     //intendo de hacer que se eliminen los items a traves de un drag
     private val onDragListener = View.OnDragListener { view, dragEvent ->
@@ -42,8 +50,25 @@ class MainActivity : AppCompatActivity() , DeleteInterface{
         false
     }
 
-    lateinit var model: MainActivityViewModel
+    private lateinit var model: MainActivityViewModel
     private val adapter = MainActivityAdapter(this)
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // R.my_menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/my_menu directory.
+        // If you don't have res/my_menu, just create a directory named "my_menu" inside res
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    // handle button activities
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.itemId
+        if (id == R.id.mybutton) {
+            showAlert()
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +77,7 @@ class MainActivity : AppCompatActivity() , DeleteInterface{
 
         //funcion para salir de la sesion TODO agregarlo al boton correcto
         /*buttonEliminar.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            onBackPressed()
+
         }*/
 
         floatingActionButton.setOnClickListener {
@@ -88,10 +112,6 @@ class MainActivity : AppCompatActivity() , DeleteInterface{
         updateAdapter()
     }
 
-    override fun getDelete(): ImageView {
-        return buttonDeleteMain
-    }
-
     private fun updateAdapter(){
         CoroutineScope(Main).launch {
             val devices = mutableListOf<Devices>()
@@ -115,5 +135,25 @@ class MainActivity : AppCompatActivity() , DeleteInterface{
     private fun showList() {
         val mainIntent = Intent(this, ListActivity::class.java)
         startActivity(mainIntent)
+    }
+
+    override fun dataChanged() {
+        CoroutineScope(Main).launch {
+            adapter.updateDevices(model.LoadDevices())
+        }
+    }
+    private fun showAlert() {
+        val builder = AlertDialog.Builder(this)
+        builder.apply {
+            setMessage(getString(R.string.sing_out_message))
+            setPositiveButton(getString(R.string.accept)) { dialog, _ ->
+                FirebaseAuth.getInstance().signOut()
+                dialog.dismiss()
+                onBackPressed() }
+
+            setNegativeButton(getString(R.string.cancel),null)
+            create()
+        }
+        builder.show()
     }
 }

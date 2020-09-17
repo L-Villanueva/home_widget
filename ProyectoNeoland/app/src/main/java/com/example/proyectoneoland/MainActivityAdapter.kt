@@ -1,7 +1,9 @@
 package com.example.proyectoneoland
 
+import android.app.AlertDialog
 import android.content.ClipData
 import android.content.ClipDescription
+import android.content.Context
 import android.os.Build
 import android.os.Build.VERSION_CODES.N
 import android.view.DragEvent
@@ -14,6 +16,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoneoland.data.Devices
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.Adapter<MainActivityAdapter.ViewHolder>() {
@@ -97,13 +100,30 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
         if (delete) {
             holder.delete.visibility = View.VISIBLE
             holder.delete.setOnClickListener {
-                listener.delete(list[position])
+
+                showAlert(holder.root.context, position)
             }
         } else {
             holder.delete.visibility = View.GONE
         }
 
 
+    }
+    private fun showAlert(context: Context, position: Int) {
+        
+        val builder = AlertDialog.Builder(context)
+        builder.apply {
+
+            setMessage(context.getString(R.string.delete_message))
+            setPositiveButton(context.getString(R.string.accept)) { dialog, _ ->
+                listener.delete(list[position])
+                dialog.dismiss()
+                notifyDataSetChanged() }
+
+            setNegativeButton(context.getString(R.string.cancel),null)
+            create()
+        }
+        builder.show()
     }
 
 }
