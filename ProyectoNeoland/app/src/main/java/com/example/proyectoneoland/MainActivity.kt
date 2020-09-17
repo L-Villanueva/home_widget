@@ -1,7 +1,6 @@
 package com.example.proyectoneoland
 
 import android.content.ClipData
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.DragEvent
@@ -18,6 +17,7 @@ import com.example.proyectoneoland.list_screen.ListActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 
@@ -85,14 +85,11 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
         }
 
         model = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(
-                MainActivityViewModel::class.java
-            )
+                MainActivityViewModel::class.java)
 
-        updateAdapter()
         buttonDeleteMain.setOnClickListener {
             adapter.showDelete()
         }
-
     }
 
     override fun onResume() {
@@ -108,21 +105,20 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
     override fun delete(device: Devices) {
         CoroutineScope(Main).launch {
             model.deleteDevice(device)
+            updateAdapter()
         }
-        updateAdapter()
     }
 
     private fun updateAdapter(){
         CoroutineScope(Main).launch {
             val devices = mutableListOf<Devices>()
-            model.LoadDevices().forEach {
+            model.loadDevices().forEach {
                 if (it.owner.equals(FirebaseAuth.getInstance().currentUser?.email)){
                     devices.add(it)
                 }
             }
             if (devices.isNullOrEmpty()){
                 showList()
-                finish()
 
             } else {
                 adapter.updateDevices(devices)
@@ -139,7 +135,7 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
 
     override fun dataChanged() {
         CoroutineScope(Main).launch {
-            adapter.updateDevices(model.LoadDevices())
+            adapter.updateDevices(model.loadDevices())
         }
     }
     private fun showAlert() {

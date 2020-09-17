@@ -11,7 +11,7 @@
     <string name="delete_message">Are you sure you want to delete this device?</string>
 
     <string-array name="Brands">
-        <item></item>
+        <item>Select device brand</item>
         <item>Xiaomi</item>
         <item>Philips</item>
         <item>Yeelight</item>

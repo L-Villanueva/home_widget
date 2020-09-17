@@ -8,7 +8,10 @@ import android.widget.ArrayAdapter
 import android.widget.FrameLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.component1
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.proyectoneoland.MainActivityViewModel
 import com.example.proyectoneoland.R
 import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.list_screen.fragment_add.FragmentAdd
@@ -18,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
+import kotlin.system.exitProcess
 
 
 interface ListInterface{
@@ -34,14 +38,23 @@ interface BackPressed{
 class ListActivity: AppCompatActivity(), ListInterface,BackPressed{
 
     private var fragment: FragmentAdd? = null
+    private lateinit var model: ListActivityViewModel
+
+    override fun onBackPressed() {
+        CoroutineScope(Main).launch {
+            if (!model.loadDevices().isNullOrEmpty()){
+                super.onBackPressed()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        model = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(
+            ListActivityViewModel::class.java)
+
         setContentView(R.layout.activity_list)
-
-
-
 
         ArrayAdapter.createFromResource(this, R.array.Brands, android.R.layout.simple_spinner_item).also { adapter ->
             // Specify the layout to use when the list of choices appears
@@ -54,8 +67,8 @@ class ListActivity: AppCompatActivity(), ListInterface,BackPressed{
 
 
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                if (position != 0){
                 val selectedItem = parent.getItemAtPosition(position).toString()
-                if (selectedItem.length > 1) {
                     materialCardView2.visibility = View.VISIBLE
                     showFragment(FragmentList.setArgument(selectedItem, this@ListActivity))
                 }
