@@ -95,9 +95,7 @@ class WidgetConfigureClass: AppCompatActivity(), Configure {
         val resultValue = Intent()
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         setResult(RESULT_OK, resultValue)
-        val updateIntent = Intent()
-        updateIntent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
-        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.layout.new_app_widget)
+
         val arrayWidgetId = IntArray(1)
         arrayWidgetId[0] = appWidgetId
         NewAppWidget().onUpdate(this,appWidgetManager, arrayWidgetId)
