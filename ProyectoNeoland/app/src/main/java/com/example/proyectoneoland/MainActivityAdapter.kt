@@ -5,8 +5,6 @@ import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Context
 import android.os.Build
-import android.os.Build.VERSION_CODES.N
-import android.view.DragEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +14,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoneoland.data.Devices
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.Adapter<MainActivityAdapter.ViewHolder>() {

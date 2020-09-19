@@ -1,6 +1,7 @@
 package com.example.proyectoneoland.data
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -16,10 +17,10 @@ class App : Application() {
     companion object {
         private var db: AppDatabase? = null
 
-        fun getDatabase(application: Application): AppDatabase {
+        fun getDatabase(context: Context): AppDatabase {
             db?.let { return it }
 
-            db = Room.databaseBuilder(application, AppDatabase::class.java, "main.db")
+            db = Room.databaseBuilder(context, AppDatabase::class.java, "main.db")
                 .addCallback(getCallback())
                 .build()
             return db as AppDatabase

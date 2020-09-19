@@ -24,6 +24,11 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/new_app_widget_info" />
         </receiver>
+        <activity android:name=".widget.WidgetConfigureClass">
+            <intent-filter>
+                <action android:name="android.appwidget.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
 
         <activity android:name=".MainActivity" />
         <activity android:name=".list_screen.ListActivity" />

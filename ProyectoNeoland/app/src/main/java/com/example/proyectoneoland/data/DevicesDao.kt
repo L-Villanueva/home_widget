@@ -27,4 +27,7 @@ interface DevicesDao {
 
     @Query("SELECT * FROM Devices WHERE Brand LIKE :brand")
     fun getBrand(brand: Brand) : List<Devices>
+
+    @Query("SELECT * FROM Devices WHERE uid LIKE :id")
+    fun getById(id : Int) : Devices
 }
