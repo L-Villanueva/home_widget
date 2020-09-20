@@ -48,7 +48,7 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
 
 
 
-    class ViewHolder(var root: View, var image: ImageView, var name: TextView, var delete: FloatingActionButton) : RecyclerView.ViewHolder(root)
+    class ViewHolder(var root: View, var image: ImageView, var name: TextView, var delete: ImageView) : RecyclerView.ViewHolder(root)
 
     fun updateDevices(devices : List<Devices>){
         this.list = devices
@@ -57,7 +57,7 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
     }
 
     fun showDelete(){
-        delete = true
+        delete = !delete
         notifyDataSetChanged()
     }
 
@@ -66,7 +66,7 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
         val view = LayoutInflater.from(parent.context).inflate(R.layout.device_item, parent, false)
         val image = view.findViewById<ImageView>(R.id.imageMain)
         val name = view.findViewById<TextView>(R.id.nameMain)
-        val delete = view.findViewById<FloatingActionButton>(R.id.deleteFloatingAction)
+        val delete = view.findViewById<ImageView>(R.id.deleteFloatingAction)
 
         return ViewHolder(view, image, name, delete)
     }
@@ -76,24 +76,20 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        // si la bombilla esta encendida se muestra una imagen, y si esta apagada otra
         if (list[position].toggle){
             holder.image.setImageResource(list[position].pictures.buttonOn)
         } else {
             holder.image.setImageResource(list[position].pictures.buttonOff)
         }
         holder.name.text = list[position].name
-        if (list[position].toggle) {
-            holder.root.setOnClickListener {
-                list[position].toggle = false
-                notifyDataSetChanged()
-            }
-        } else {
-            holder.root.setOnClickListener {
-                list[position].toggle = true
-                notifyDataSetChanged()
-            }
+
+        holder.root.setOnClickListener {
+            list[position].toggle = !list[position].toggle
+            notifyDataSetChanged()
         }
 
+        //si la variable delete es true se muestra el boton para eliminar y se le agrega un listener que muestra un alert
         if (delete) {
             holder.delete.visibility = View.VISIBLE
             holder.delete.setOnClickListener {
@@ -113,6 +109,7 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
 
             setMessage(context.getString(R.string.delete_message))
             setPositiveButton(context.getString(R.string.accept)) { dialog, _ ->
+                //si el usuario esta seguro de querer eliminar se llama a una funcion del listener que accede a la base de datos,elimina y luego notifica el cambio
                 listener.delete(list[position])
                 dialog.dismiss()
                 notifyDataSetChanged() }

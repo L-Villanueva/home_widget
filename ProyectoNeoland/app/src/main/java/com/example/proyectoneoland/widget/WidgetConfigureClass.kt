@@ -81,12 +81,7 @@ class WidgetConfigureClass: AppCompatActivity(), Configure {
 
     override fun confirmConfigure(device: Devices) {
         val appWidgetManager=  AppWidgetManager.getInstance(this)
-        appWidgetManager.updateAppWidget(
-            appWidgetId, RemoteViews(
-                this.packageName,
-                R.layout.new_app_widget
-            )
-        )
+        appWidgetManager.updateAppWidget(appWidgetId, RemoteViews(this.packageName, R.layout.new_app_widget))
         val prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
         val editor = prefs.edit()
         editor.putInt(appWidgetId.toString(), device.uid)

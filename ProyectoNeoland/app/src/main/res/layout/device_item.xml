@@ -10,20 +10,7 @@
         android:layout_width="115dp"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/deleteFloatingAction"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:foreground="@drawable/ic_bin"
-            android:visibility="gone"
-            app:backgroundTint="@color/design_default_color_error"
-            app:layout_constraintBottom_toBottomOf="@+id/imageMain"
-            app:layout_constraintEnd_toEndOf="@id/imageMain"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toStartOf="@id/imageMain"
-            app:layout_constraintTop_toTopOf="@id/imageMain"
-            app:layout_constraintVertical_bias="0"
-            app:useCompatPadding="false" />
+
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageMain"
@@ -31,11 +18,26 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
+
             android:src="@drawable/ic_boton__lightbulb"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/deleteFloatingAction"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/imageMain"
+            app:layout_constraintEnd_toEndOf="@id/imageMain"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/imageMain"
+            app:layout_constraintTop_toTopOf="@id/imageMain"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/elim"
+            app:useCompatPadding="false" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/nameMain"

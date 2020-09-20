@@ -6,9 +6,13 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.example.proyectoneoland.MainActivity
 import com.example.proyectoneoland.R
 import com.example.proyectoneoland.data.App
+import com.example.proyectoneoland.data.Devices
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -22,11 +26,7 @@ class NewAppWidget : AppWidgetProvider() {
 
     val SHARED_PREFS = "prefs"
 
-    override fun onUpdate(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetIds: IntArray
-    ) {
+    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
 
@@ -35,6 +35,7 @@ class NewAppWidget : AppWidgetProvider() {
             val deviceId = prefs.getInt(appWidgetId.toString(), -1)
 
             val views = RemoteViews(context.packageName, R.layout.new_app_widget)
+
             CoroutineScope(IO).launch {
                 withContext(IO) {
 
@@ -49,12 +50,8 @@ class NewAppWidget : AppWidgetProvider() {
                     // Instruct the widget manager to update the widget
                 }
             }
-
-
         }
-
     }
-
 
     override fun onEnabled(context: Context) {
 

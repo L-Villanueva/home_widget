@@ -53,13 +53,13 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
     private val adapter = MainActivityAdapter(this)
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        // R.my_menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/my_menu directory.
-        // If you don't have res/my_menu, just create a directory named "my_menu" inside res
+        //
+        // creo un menu personalizado para agregar un boton de logout
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
-    // handle button activities
+    // logica boton logout
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id: Int = item.itemId
         if (id == R.id.mybutton) {
@@ -74,10 +74,6 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
         setContentView(R.layout.activity_main)
         createRecyclerView()
 
-        //funcion para salir de la sesion TODO agregarlo al boton correcto
-        /*buttonEliminar.setOnClickListener {
-
-        }*/
 
         floatingActionButton.setOnClickListener {
             showList()
@@ -110,12 +106,15 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
 
     private fun updateAdapter(){
         CoroutineScope(Main).launch {
+            //cuando se actualiza la lista del recycler view me aseguro que solo aparezcan los dispositivos de la cuenta que esta activa,
+            //como los dispositivos de prueba no tienen dueño, no se agregan a la lsta y no salen en pantalla
             val devices = mutableListOf<Devices>()
             model.loadDevices().forEach {
                 if (it.owner.equals(FirebaseAuth.getInstance().currentUser?.email)){
                     devices.add(it)
                 }
             }
+            //si el usuario no tiene dispositivos, se viaja a la proxima pantalla
             if (devices.isNullOrEmpty()){
                 showList()
 

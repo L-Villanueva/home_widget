@@ -5,7 +5,7 @@
     android:initialLayout="@layout/new_app_widget"
     android:minWidth="80dp"
     android:minHeight="110dp"
-    android:previewImage="@drawable/example_appwidget_preview"
+    android:previewImage="@drawable/ic_widget_lightbulb_light_off"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen">

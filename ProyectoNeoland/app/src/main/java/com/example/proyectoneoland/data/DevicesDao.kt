@@ -30,4 +30,7 @@ interface DevicesDao {
 
     @Query("SELECT * FROM Devices WHERE uid LIKE :id")
     fun getById(id : Int) : Devices
+
+    @Query("SELECT * FROM Devices WHERE uid LIKE :id")
+    fun getLive(id : Int) : LiveData<Devices>
 }
