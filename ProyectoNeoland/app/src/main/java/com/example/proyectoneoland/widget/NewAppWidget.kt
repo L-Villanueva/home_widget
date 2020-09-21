@@ -81,14 +81,11 @@ class NewAppWidget : AppWidgetProvider() {
         super.onReceive(context, intent)
         if (CLICKED == intent?.action){
 
-            Toast.makeText(context, "funciona", Toast.LENGTH_LONG).show()
-
             if (context != null) {
                 CoroutineScope(IO).launch {
                     withContext(IO) {
                         val id = intent.getIntExtra(clave2, -1)
                         if (id != -1) {
-                            Log.d("aqui", "$id")
                             val device = App.getDatabase(context).devicesDao()
                                 .getById(id)
 

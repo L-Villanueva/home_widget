@@ -15,19 +15,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfe84c29-5e3b-4df3-8f5d-4ae43c343b46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/AuthActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/AuthActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivityAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/MainActivityAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/WidgetConfigureClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/WidgetConfigureClass.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/device_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/device_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/widget_configure_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_configure_activity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,11 +208,12 @@
     </state>
     <state x="-1372" y="291" key="AndroidCreateResourceFileDialog/-1920.23.1920.1057/0.23.1792.1007@-1920.23.1920.1057" timestamp="1600503995553" />
     <state x="-1372" y="291" key="AndroidCreateResourceFileDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1600078777631" />
-    <state x="761" y="394" key="AndroidCreateXmlResourceDialog" timestamp="1600682578689">
-      <screen x="0" y="23" width="1792" height="1097" />
+    <state x="761" y="364" key="AndroidCreateXmlResourceDialog" timestamp="1600683197702">
+      <screen x="0" y="23" width="1792" height="1007" />
     </state>
     <state x="761" y="394" key="AndroidCreateXmlResourceDialog/-1016.23.1016.655/0.23.1792.1097@0.23.1792.1097" timestamp="1600682578689" />
     <state x="761" y="394" key="AndroidCreateXmlResourceDialog/-1016.23.1016.660/0.23.1792.1097@0.23.1792.1097" timestamp="1600677735632" />
+    <state x="761" y="364" key="AndroidCreateXmlResourceDialog/-1016.23.1016.723/0.23.1792.1007@0.23.1792.1007" timestamp="1600683197702" />
     <state x="-1105" y="381" key="AndroidCreateXmlResourceDialog/-1920.23.1920.1057/0.23.1792.1013@-1920.23.1920.1057" timestamp="1599724854687" />
     <state x="-1105" y="350" key="AndroidCreateXmlResourceDialog/-1920.23.1920.967/0.23.1792.1097@-1920.23.1920.967" timestamp="1600335417881" />
     <state x="761" y="364" key="AndroidCreateXmlResourceDialog/0.23.1792.1007@0.23.1792.1007" timestamp="1600626135009" />
@@ -366,7 +358,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt</url>
-          <line>130</line>
+          <line>127</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -376,32 +368,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt</url>
-          <line>89</line>
+          <line>87</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt</url>
-          <line>91</line>
+          <line>88</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt</url>
-          <line>95</line>
+          <line>92</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt</url>
-          <line>94</line>
+          <line>91</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt</url>
-          <line>132</line>
+          <line>129</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/proyectoneoland/widget/NewAppWidget.kt</url>
-          <line>88</line>
+          <line>86</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>

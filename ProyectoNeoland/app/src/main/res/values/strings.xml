@@ -20,4 +20,5 @@
     <string name="add_widget">Add widget</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_in_with_google">Sign in with google</string>
+    <string name="choose_a_device_to_add">Choose a device to add</string>
 </resources>
