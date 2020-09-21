@@ -96,4 +96,5 @@ class WidgetConfigureClass: AppCompatActivity(), Configure {
         NewAppWidget().onUpdate(this,appWidgetManager, arrayWidgetId)
         finish()
     }
+
 }

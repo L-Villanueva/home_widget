@@ -1,17 +1,22 @@
 package com.example.proyectoneoland
 
 import android.content.ClipData
+import android.content.Context
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.DimenRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.list_screen.ListActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
+
 
 interface DeleteInterface{
     fun delete(device: Devices)
@@ -80,7 +86,8 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
         }
 
         model = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(
-                MainActivityViewModel::class.java)
+            MainActivityViewModel::class.java
+        )
 
         buttonDeleteMain.setOnClickListener {
             adapter.showDelete()
@@ -145,7 +152,7 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
                 dialog.dismiss()
                 onBackPressed() }
 
-            setNegativeButton(getString(R.string.cancel),null)
+            setNegativeButton(getString(R.string.cancel), null)
             create()
         }
         builder.show()

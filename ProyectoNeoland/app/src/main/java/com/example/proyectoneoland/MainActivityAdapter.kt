@@ -43,11 +43,6 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
         false
     }
 
-
-
-
-
-
     class ViewHolder(var root: View, var image: ImageView, var name: TextView, var delete: ImageView) : RecyclerView.ViewHolder(root)
 
     fun updateDevices(devices : List<Devices>){
@@ -60,7 +55,6 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
         delete = !delete
         notifyDataSetChanged()
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.device_item, parent, false)
