@@ -55,6 +55,18 @@ class App : Application() {
                                     Devices("Outlet", pictures = imagesOutlet, widgets = widgetOutlet, type = DeviceType.OUTLET,brand = Brand.PHILIPS),
                                     Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.XIAOMI),
                                     Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.YEELIGHT),
+                                    Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.PHILIPS),
+                                    Devices("Bombilla LED", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.XIAOMI),
+                                    Devices("Bombilla LED", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.YEELIGHT),
+                                    Devices("Bombilla LED", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.PHILIPS),
+                                    Devices("Speaker", pictures = imagesSpeaker, widgets = widgetSpeaker, type = DeviceType.SPEAKER,brand = Brand.XIAOMI),
+                                    Devices("Speaker", pictures = imagesSpeaker, widgets = widgetSpeaker, type = DeviceType.SPEAKER,brand = Brand.YEELIGHT),
+                                    Devices("Speaker", pictures = imagesSpeaker, widgets = widgetSpeaker, type = DeviceType.SPEAKER,brand = Brand.PHILIPS),
+                                    Devices("Outlet", pictures = imagesOutlet, widgets = widgetOutlet, type = DeviceType.OUTLET,brand = Brand.XIAOMI),
+                                    Devices("Outlet", pictures = imagesOutlet, widgets = widgetOutlet, type = DeviceType.OUTLET,brand = Brand.YEELIGHT),
+                                    Devices("Outlet", pictures = imagesOutlet, widgets = widgetOutlet, type = DeviceType.OUTLET,brand = Brand.PHILIPS),
+                                    Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.XIAOMI),
+                                    Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.YEELIGHT),
                                     Devices("Bombilla RGB", pictures = imagesLightbulb, widgets = widgetLightbulb, type = DeviceType.LIGHT,brand = Brand.PHILIPS)
                                 )
 

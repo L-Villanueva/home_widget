@@ -52,7 +52,7 @@ class AuthActivity : AppCompatActivity() {
                 }
             }
         }
-        //muy parecido al boton de iniciar sesion pero para crear una cuenta nueva TODO unir las dos en una sola funcion
+        //muy parecido al boton de iniciar sesion pero para crear una cuenta nueva
         textCrear.setOnClickListener {
             if (!editPassword.text.isNullOrBlank() && !editEmail.text.isNullOrBlank()) {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(editEmail.text.toString(), editPassword.text.toString()).addOnCompleteListener {

@@ -13,4 +13,8 @@ class WidgetConfigureViewModel (application: Application) : AndroidViewModel(app
 
         return@withContext App.getDatabase(getApplication()).devicesDao().getAll()
     }
+    suspend fun updateDevice(device: Devices)= withContext(Dispatchers.IO){
+
+        App.getDatabase(getApplication()).devicesDao().update(device)
+    }
 }

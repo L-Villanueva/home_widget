@@ -13,12 +13,13 @@ import com.example.proyectoneoland.data.Devices
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.widget_configure_activity.*
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 
 
 interface Configure {
-    fun confirmConfigure(device: Devices)
+    fun confirmConfigure(device: Devices, theme: Boolean)
 }
 
 class WidgetConfigureClass: AppCompatActivity(), Configure {
@@ -79,11 +80,13 @@ class WidgetConfigureClass: AppCompatActivity(), Configure {
         }
     }
 
-    override fun confirmConfigure(device: Devices) {
-        val appWidgetManager=  AppWidgetManager.getInstance(this)
-        appWidgetManager.updateAppWidget(appWidgetId, RemoteViews(this.packageName, R.layout.new_app_widget))
-        val prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
-        val editor = prefs.edit()
+    override fun confirmConfigure(device: Devices, theme: Boolean) {
+        device.widgetTheme = theme
+        CoroutineScope(IO).launch {
+            model.updateDevice(device)
+        }
+
+        val editor = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE).edit()
         editor.putInt(appWidgetId.toString(), device.uid)
         editor.apply()
 
@@ -91,10 +94,7 @@ class WidgetConfigureClass: AppCompatActivity(), Configure {
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         setResult(RESULT_OK, resultValue)
 
-        val arrayWidgetId = IntArray(1)
-        arrayWidgetId[0] = appWidgetId
-        NewAppWidget().onUpdate(this,appWidgetManager, arrayWidgetId)
+        NewAppWidget().onUpdate(this)
         finish()
     }
-
 }

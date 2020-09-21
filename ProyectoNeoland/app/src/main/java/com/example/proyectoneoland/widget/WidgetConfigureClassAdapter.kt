@@ -1,10 +1,12 @@
 package com.example.proyectoneoland.widget
 
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoneoland.MainActivityAdapter
 import com.example.proyectoneoland.R
@@ -42,8 +44,21 @@ class WidgetConfigureClassAdapter(var listener: Configure): RecyclerView.Adapter
         }
         holder.name.text = list[position].name
         holder.root.setOnClickListener {
-            listener.confirmConfigure(list[position])
+
+            val builder = AlertDialog.Builder(holder.root.context)
+            builder.apply {
+                setMessage("Select theme for widget")
+                setNegativeButton("Light", DialogInterface.OnClickListener { dialog, _ ->
+                    listener.confirmConfigure(list[position], true)
+                    dialog.dismiss()
+                })
+                setPositiveButton("Dark", DialogInterface.OnClickListener { dialog, _ ->
+                    listener.confirmConfigure(list[position], false)
+                    dialog.dismiss()
+                })
+                create()
+            }
+            builder.show()
         }
     }
-
 }

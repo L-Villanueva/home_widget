@@ -1,59 +1,37 @@
 package com.example.proyectoneoland
 
 import android.content.ClipData
-import android.content.Context
 import android.content.Intent
-import android.graphics.Rect
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import androidx.annotation.DimenRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.proyectoneoland.data.Devices
 import com.example.proyectoneoland.list_screen.ListActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 
 
-interface DeleteInterface{
+interface MainInterface{
     fun delete(device: Devices)
+    fun modify(device: Devices)
 
 }
 
 interface DataChangeListener{
     fun dataChanged()
 }
-class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
-
-    //intendo de hacer que se eliminen los items a traves de un drag
-    private val onDragListener = View.OnDragListener { view, dragEvent ->
-        (view as? ImageView)?.let {
-            when (dragEvent.action) {
-
-
-                // Once the color is dropped on the area, we want to paint it in that color.
-                DragEvent.ACTION_DROP -> {
-                    // Read color data from the clip data and apply it to the card view background.
-                    val item: ClipData.Item = dragEvent.clipData.getItemAt(0)
-
-                    return@OnDragListener true
-                }
-                else -> return@OnDragListener false
-            }
-        }
-        false
-    }
+class MainActivity : AppCompatActivity() , MainInterface, DataChangeListener{
 
     private lateinit var model: MainActivityViewModel
     private val adapter = MainActivityAdapter(this)
@@ -107,6 +85,14 @@ class MainActivity : AppCompatActivity() , DeleteInterface, DataChangeListener{
     override fun delete(device: Devices) {
         CoroutineScope(Main).launch {
             model.deleteDevice(device)
+            updateAdapter()
+        }
+    }
+
+    override fun modify(device: Devices) {
+        CoroutineScope(IO).launch {
+            device.toggle = !device.toggle
+            model.updateDevice(device)
             updateAdapter()
         }
     }

@@ -22,7 +22,8 @@ data class Devices(
     var widgets: Widget,
     var toggle: Boolean = false,
     var type: DeviceType,
-    var brand: Brand
+    var brand: Brand,
+    var widgetTheme: Boolean? = null
 
 ) : java.io.Serializable {
     @PrimaryKey(autoGenerate = true)

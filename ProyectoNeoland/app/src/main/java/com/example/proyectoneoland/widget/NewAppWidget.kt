@@ -47,19 +47,31 @@ class NewAppWidget : AppWidgetProvider() {
 
                     val device = App.getDatabase(context).devicesDao().getById(deviceId)
                     device?.let {
+                        it.widgetTheme?.let {theme->
+                            views.setTextViewText(R.id.name_widget, device.name)
 
-                        if (it.toggle){
-                            views.setImageViewResource(
-                                R.id.appwidget_image,
-                                it.widgets.widgetLightOn
-                            )
-                        } else {
-                            views.setImageViewResource(
-                                R.id.appwidget_image,
-                                it.widgets.widgetLightOff
-                            )
+                            if (it.toggle && theme){
+                                views.setImageViewResource(
+                                    R.id.appwidget_image,
+                                    it.widgets.widgetLightOn
+                                )
+                            } else if(!it.toggle && theme){
+                                views.setImageViewResource(
+                                    R.id.appwidget_image,
+                                    it.widgets.widgetLightOff
+                                )
+                            } else if (it.toggle && !theme){
+                                views.setImageViewResource(
+                                    R.id.appwidget_image,
+                                    it.widgets.widgetDarkOn
+                                )
+                            } else if (!it.toggle && !theme){
+                                views.setImageViewResource(
+                                    R.id.appwidget_image,
+                                    it.widgets.widgetDarkOff
+                                )
+                            }
                         }
-
                     }
                     views.setOnClickPendingIntent(
                         R.id.appwidget_image, getPendingSelfIntent(
@@ -99,7 +111,6 @@ class NewAppWidget : AppWidgetProvider() {
         }
     }
 
-
     override fun onEnabled(context: Context) {
 
         // Enter relevant functionality for when the first widget is created
@@ -109,7 +120,7 @@ class NewAppWidget : AppWidgetProvider() {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-    private fun onUpdate(context: Context){
+    fun onUpdate(context: Context){
         val appWidgetManager = AppWidgetManager.getInstance(context)
 
         val thisAppWidgetComponentName = ComponentName(

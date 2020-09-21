@@ -13,35 +13,13 @@ import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoneoland.data.Devices
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.proyectoneoland.widget.NewAppWidget
 
 
-class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.Adapter<MainActivityAdapter.ViewHolder>() {
+class MainActivityAdapter(private var listener: MainInterface): RecyclerView.Adapter<MainActivityAdapter.ViewHolder>() {
 
     private var list = listOf<Devices>()
     private var delete = false
-
-    //intendo de hacer que se eliminen los items a traves de un drag
-    private val onLongClickListener = View.OnLongClickListener { view: View ->
-        (view as? View)?.let {
-            val item = ClipData.Item(it.tag as? CharSequence)
-            val dragData = ClipData(
-                it.tag as? CharSequence,
-                arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
-                item
-            )
-            val myShadow = View.DragShadowBuilder(it)
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                it.startDragAndDrop(dragData, myShadow, null, 0)
-            } else {
-                it.startDrag(dragData, myShadow, null, 0)
-            }
-
-            true
-        }
-        false
-    }
 
     class ViewHolder(var root: View, var image: ImageView, var name: TextView, var delete: ImageView) : RecyclerView.ViewHolder(root)
 
@@ -79,8 +57,9 @@ class MainActivityAdapter(private var listener: DeleteInterface): RecyclerView.A
         holder.name.text = list[position].name
 
         holder.root.setOnClickListener {
-            list[position].toggle = !list[position].toggle
-            notifyDataSetChanged()
+
+            listener.modify(list[position])
+            NewAppWidget().onUpdate(holder.root.context)
         }
 
         //si la variable delete es true se muestra el boton para eliminar y se le agrega un listener que muestra un alert

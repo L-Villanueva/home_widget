@@ -17,4 +17,9 @@ class MainActivityViewModel (application: Application) : AndroidViewModel(applic
 
         App.getDatabase(getApplication()).devicesDao().delete(device)
     }
+
+    suspend fun updateDevice(device: Devices)= withContext(Dispatchers.IO){
+
+        App.getDatabase(getApplication()).devicesDao().update(device)
+    }
 }
