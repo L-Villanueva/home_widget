@@ -37,7 +37,7 @@ class AuthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_auth)
         supportActionBar?.hide()
         // se agrega un listener al boton de iniciar sesion
-        buttonAcceder.setOnClickListener {
+        buttonSignIn.setOnClickListener {
             if (!editPassword.text.isNullOrBlank() && !editEmail.text.isNullOrBlank()) {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(editEmail.text.toString(), editPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
@@ -53,7 +53,7 @@ class AuthActivity : AppCompatActivity() {
             }
         }
         //muy parecido al boton de iniciar sesion pero para crear una cuenta nueva
-        textCrear.setOnClickListener {
+        textCreate.setOnClickListener {
             if (!editPassword.text.isNullOrBlank() && !editEmail.text.isNullOrBlank()) {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(editEmail.text.toString(), editPassword.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {

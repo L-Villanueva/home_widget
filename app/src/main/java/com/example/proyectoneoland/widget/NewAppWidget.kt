@@ -111,15 +111,6 @@ class NewAppWidget : AppWidgetProvider() {
         }
     }
 
-    override fun onEnabled(context: Context) {
-
-        // Enter relevant functionality for when the first widget is created
-    }
-
-    override fun onDisabled(context: Context) {
-        // Enter relevant functionality for when the last widget is disabled
-    }
-
     fun onUpdate(context: Context){
         val appWidgetManager = AppWidgetManager.getInstance(context)
 
@@ -141,6 +132,15 @@ class NewAppWidget : AppWidgetProvider() {
         intent.action = action
 
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+    }
+
+    override fun onEnabled(context: Context) {
+
+        // Enter relevant functionality for when the first widget is created
+    }
+
+    override fun onDisabled(context: Context) {
+        // Enter relevant functionality for when the last widget is disabled
     }
 }
 
